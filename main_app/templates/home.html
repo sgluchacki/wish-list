@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish List</title>
+</head>
+<body>
+    <h1>Wish List</h1>
+    {% if wishes|length > 0 %}
+        <ul>
+            {% for wish in wishes %}
+                <li>{{ wish.item }} | <a href="{% url 'wish_delete' wish.id %}">DELETE</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No wishes yet</h3>
+    {% endif %}
+    <hr>
+    <a href="{% url 'wish_create' %}">Create Wish</a>
+</body>
+</html>
